@@ -1,16 +1,18 @@
 from django.http import HttpResponse, Http404
 from .models import User
-from django.shortcuts import render
+from django.shortcuts import get_object_or_404, render
 
 def index(request):
-	return HttpResponse("Hello, world. You're at the index")
+	return HttpResponse("Hello, world. You're at the Activity feed")
 	
-def profile(request):
-	try:
-		user = User.objects.get(pk=1)
-	except User.DoesNotExist:
-		raise Http404("User does not exist")
-	return render(request, 'feed/index.html', {'user': user})
+def profile(request, user_id):
+	user = get_object_or_404(User, pk=user_id)
+	return render(request, 'feed/profile.html', {'user': user})
+	#try:
+	#	user = User.objects.get(pk=user_id)
+	#except User.DoesNotExist:
+	#	raise Http404("User does not exist")
+	
 	
 	
 	#text_output = profile_info.name + '     ' + profile_info.email
