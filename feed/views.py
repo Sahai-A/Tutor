@@ -2,8 +2,9 @@ from django.http import HttpResponse, Http404
 from .models import User
 from django.shortcuts import get_object_or_404, render
 
-def index(request):
-	return HttpResponse("Hello, world. You're at the Activity feed")
+def index(request, user_id):
+	return render(request, 'feed/index.html', {'user_id': user_id})
+	
 	
 def profile(request, user_id):
 	user = get_object_or_404(User, pk=user_id)

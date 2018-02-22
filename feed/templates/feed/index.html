@@ -9,9 +9,9 @@
 {% endif %}
 -->
 
-{% if user %}
+{% if user_id %}
 	<ul>
-        <li>{{user.name}}</li>
+        <li><a href="/feed/profile/{{user_id}}">my profile</a></li>
 	</ul>
 {% else %}
     <p>No user info is available.</p>
