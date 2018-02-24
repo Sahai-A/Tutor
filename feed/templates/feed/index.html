@@ -11,7 +11,11 @@
 
 {% if user_id %}
 	<ul>
-        <li><a href="/feed/profile/{{user_id}}">my profile</a></li>
+        <li>
+        Hello, world. You're at the Activity feed, Would you like to view your profile?
+        <br /> <br /> 
+        <a href="/feed/profile/{{user_id}}">my profile</a> 
+        </li>
 	</ul>
 {% else %}
     <p>No user info is available.</p>
