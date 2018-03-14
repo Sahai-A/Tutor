@@ -1,8 +1,10 @@
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404,HttpResponseBadRequest, HttpResponseRedirect
 from .models import User
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render, redirect
 import pdb;
+	
+	#pdb.set_trace() is debbugger 
 	
 def index(request, user_id):
 	user = get_object_or_404(User, pk=user_id)
@@ -17,13 +19,11 @@ def new_profile(request):
 	return render(request, 'feed/new_profile.html',)
 	
 def submit_profile(request):
-	pdb.set_trace()
 	if request.POST:
 		user = User.objects.create(name = request.POST.get('name',False))
-		pdb.set_trace()
-		#if (user.is_valid()):
-			#user.save()
 		return redirect('/feed/' + str(user.id)) 
+	else:
+		return HttpResponseBadRequest()
 			#if not valid - show error 
 	#return render(request,'feed/submit_profile.html',{'name': request.POST.get('name',False)})
 	
