@@ -5,6 +5,8 @@ from django.shortcuts import get_object_or_404, render, redirect
 import pdb;
 	
 	#pdb.set_trace() is debbugger 
+def base(request):
+	return render(request, 'feed/base.html',)
 	
 def index(request, user_id):
 	user = get_object_or_404(User, pk=user_id)

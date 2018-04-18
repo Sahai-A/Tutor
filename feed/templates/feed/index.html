@@ -8,6 +8,8 @@
     <p>No polls are available.</p>
 {% endif %}
 -->
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'feed/style.css' %}" />
 
 {% if user_id %}
 	<ul>
