@@ -18,9 +18,6 @@
    Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
    MA 02110-1301, USA.
    
-   
-
-
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
@@ -47,10 +44,16 @@ Name <input type="text" name="name" maxlength="30" required/> <br> <br>
 Email Address <input type="text" name="email"> <br> <br> 
 Phone Number <input type="text" name="phone"> <br> <br>
 Grade <input type="text" name="grade" required/> <br> <br>
-What do you need tutoring in? (Use Ctrl/Cmd to select more than one) <br> <select name="help_with" multiple >
+What do you need tutoring in? (Use Ctrl/Cmd to select more than one) <br> <select name="needs_help" multiple >
 	<option value="chemistry">Chemistry</option>
 	<option value="english">English</option>
-	<option value="Geography">Geography</option>
+	<option value="geography">Geography</option>
 </select>
+What can you tutor someone in? (Use Ctrl/Cmd to select more than one) <br> <select name="can_help" multiple >
+	<option value="chemistry">Chemistry</option>
+	<option value="english">English</option>
+	<option value="geography">Geography</option>
+</select>
+
 <input type="submit" value="Submit" />
 </form>

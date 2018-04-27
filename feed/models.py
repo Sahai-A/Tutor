@@ -7,4 +7,9 @@ class User(models.Model):
 	grade = models.CharField(max_length=2, default = "")
 	def __str__(self):
 		return self.name
-# Create your models here.
+		
+class Tag(models.Model):
+	name = models.CharField(max_length=30)
+	needs_help = models.BooleanField(default = 0)
+	can_help = models.BooleanField(default = 0)
+	users = models.ManyToManyField(User)

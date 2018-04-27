@@ -1,9 +1,11 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'feed/style.css' %}" />
 
 {{ user }}
 
 <h1 class='title'>{{ user.name }}</h1>
 <ul id='profileList'>    
 	<li id='profileGrade' class='profileListItem'>{{ user.grade }}</li>
-    <li id='profileEmail' class='profileListItem'>{{ user.email }}</li>
+    <li id='profileEmail' class='profileListItem username'>{{ user.email }}</li>
     <li id='profilePhone' class='profileListItem'>{{ user.phone_number }}</li>
 </ul> 

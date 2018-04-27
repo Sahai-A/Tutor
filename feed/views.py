@@ -5,6 +5,7 @@ from django.shortcuts import get_object_or_404, render, redirect
 import pdb;
 	
 	#pdb.set_trace() is debbugger 
+	
 def base(request):
 	return render(request, 'feed/base.html',)
 	
@@ -23,6 +24,13 @@ def new_profile(request):
 def submit_profile(request):
 	if request.POST:
 		user = User.objects.create(name = request.POST.get('name',False))
+		needs_help = request.POST.getlist('needs_help')
+		can_help = request.POST.getlist('can_help')
+		pdb.set_trace()
+		for tag_name in needs_help:
+			user.tag_set.create(name = tag_name, needs_help = 1, can_help = 0)
+		for tag_name in can_help:
+			user.tag_set.create(name = tag_name, needs_help = 0, can_help = 1)
 		return redirect('/feed/' + str(user.id)) 
 	else:
 		return HttpResponseBadRequest()
